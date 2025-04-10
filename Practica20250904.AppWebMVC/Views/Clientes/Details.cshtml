@@ -1,10 +1,10 @@
 ﻿@model Practica20250904.AppWebMVC.Models.Cliente
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalle";
 }
 
-<h1>Details</h1>
+<h1>Detalle</h1>
 
 <div>
     <h4>Cliente</h4>
@@ -36,7 +36,8 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<div class="row mt-3">
+    <div class="form-group">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-info">Ir a editar</a>
+        <a asp-action="Index" class="btn btn-info">Cancelar</a>
+    </div>

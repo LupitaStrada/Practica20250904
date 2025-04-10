@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Practica20250904.AppWebMVC.Models.Cliente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Buscar Clientes";
 }
 
-<h1>Index</h1>
+<h1>Buscar Clientes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class=" btn btn-info"><i class="bi bi-plus-circle" title="Crear un nuevo registro"></i></a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Telefono)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary" title="Editar"><i class="bi bi-pencil"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning" title="Detalle"><i class="bi bi-eye"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-dark" title="Eliminar"><i class="bi bi-trash-fill"></i></a>
             </td>
         </tr>
 }
