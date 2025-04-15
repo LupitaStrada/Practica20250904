@@ -19,9 +19,18 @@ namespace Practica20250904.AppWebMVC.Controllers
         }
 
         // GET: Clientes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Cliente cliente, int topRegistro=10)
         {
-            return View(await _context.Clientes.ToListAsync());
+            var query= _context.Clientes.AsQueryable();
+            if(!string.IsNullOrWhiteSpace(cliente.Nombre))
+                query=query.Where(s=> s.Nombre.Contains(cliente.Nombre));
+            if (!string.IsNullOrWhiteSpace(cliente.Apellido))
+                query = query.Where(s => s.Apellido.Contains(cliente.Apellido));
+            if (!string.IsNullOrWhiteSpace(cliente.Telefono))
+                query = query.Where(s => s.Telefono.Contains(cliente.Telefono));
+            if(topRegistro>0)
+                query= query.Take(topRegistro);
+            return View(await query.ToListAsync());
         }
 
         // GET: Clientes/Details/5
